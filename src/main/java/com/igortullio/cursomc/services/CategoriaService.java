@@ -1,9 +1,9 @@
 package com.igortullio.cursomc.services;
 
+import com.igortullio.cursomc.domain.Categoria;
 import com.igortullio.cursomc.dto.CategoriaDTO;
 import com.igortullio.cursomc.services.exceptions.DataIntegrityException;
 import com.igortullio.cursomc.services.exceptions.ObjectNotFoundException;
-import com.igortullio.cursomc.domain.Categoria;
 import com.igortullio.cursomc.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -33,8 +33,9 @@ public class CategoriaService {
     }
 
     public Categoria update(Categoria categoria){
-        find(categoria.getId());
-        return categoriaRepository.save(categoria);
+        Categoria categoriaNova = find(categoria.getId());
+        updateData(categoriaNova, categoria);
+        return categoriaRepository.save(categoriaNova);
     }
 
     public void delete(Integer id){
@@ -57,6 +58,10 @@ public class CategoriaService {
 
     public Categoria fromDTO(CategoriaDTO categoriaDTO){
         return new Categoria(categoriaDTO.getId(), categoriaDTO.getNome());
+    }
+
+    private void updateData(Categoria categoriaNova, Categoria categoria){
+        categoriaNova.setNome(categoria.getNome());
     }
 
 }
