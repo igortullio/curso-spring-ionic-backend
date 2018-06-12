@@ -5,6 +5,7 @@ import com.igortullio.cursomc.domain.Enums.EstadoPagamento;
 import com.igortullio.cursomc.domain.Enums.TipoCliente;
 import com.igortullio.cursomc.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -40,6 +41,9 @@ public class DBService {
 
     @Autowired
     private ItemPedidoRepository itemPedidoRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public void instantiateTestDatabse() throws ParseException {
         Categoria cat1 = new Categoria(null, "Informática");
@@ -98,7 +102,7 @@ public class DBService {
         estadoRepository.saveAll(Arrays.asList(est1, est2));
         cidadeRepository.saveAll(Arrays.asList(c1, c2, c3));
 
-        Cliente cli1 = new Cliente(null, "Maria Silva", "igortullio@hotmail.com", "39378912377", TipoCliente.PESSOAFISICA);
+        Cliente cli1 = new Cliente(null, "Igor Túllio", "igortullio@hotmail.com", "39378912377", TipoCliente.PESSOAFISICA, bCryptPasswordEncoder.encode("123"));
         cli1.getTelefones().addAll(Arrays.asList("27363323", "93838393"));
 
         Endereco e1 = new Endereco(null, "Rua Flores", "300", "Apto 303", "Jardim", "38220834", cli1, c1);
