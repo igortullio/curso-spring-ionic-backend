@@ -1,7 +1,10 @@
 package com.igortullio.cursomc.services;
 
-import com.igortullio.cursomc.domain.*;
+import com.igortullio.cursomc.domain.Cliente;
 import com.igortullio.cursomc.domain.Enums.EstadoPagamento;
+import com.igortullio.cursomc.domain.ItemPedido;
+import com.igortullio.cursomc.domain.PagamentoComBoleto;
+import com.igortullio.cursomc.domain.Pedido;
 import com.igortullio.cursomc.repositories.ItemPedidoRepository;
 import com.igortullio.cursomc.repositories.PagamentoRepository;
 import com.igortullio.cursomc.repositories.PedidoRepository;

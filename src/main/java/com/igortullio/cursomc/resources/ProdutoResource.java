@@ -1,8 +1,6 @@
 package com.igortullio.cursomc.resources;
 
-import com.igortullio.cursomc.domain.Categoria;
 import com.igortullio.cursomc.domain.Produto;
-import com.igortullio.cursomc.dto.CategoriaDTO;
 import com.igortullio.cursomc.dto.ProdutoDTO;
 import com.igortullio.cursomc.resources.utils.URL;
 import com.igortullio.cursomc.services.ProdutoService;

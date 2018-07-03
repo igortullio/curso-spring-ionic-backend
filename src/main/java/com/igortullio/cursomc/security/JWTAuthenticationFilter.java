@@ -2,7 +2,6 @@ package com.igortullio.cursomc.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.igortullio.cursomc.dto.CredenciaisDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

@@ -1,12 +1,9 @@
 package com.igortullio.cursomc.services.validation;
 
 import com.igortullio.cursomc.domain.Cliente;
-import com.igortullio.cursomc.domain.Enums.TipoCliente;
 import com.igortullio.cursomc.dto.ClienteDTO;
-import com.igortullio.cursomc.dto.ClienteNewDTO;
 import com.igortullio.cursomc.repositories.ClienteRepository;
 import com.igortullio.cursomc.resources.exceptions.FieldMessage;
-import com.igortullio.cursomc.services.validation.utils.BR;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerMapping;
 

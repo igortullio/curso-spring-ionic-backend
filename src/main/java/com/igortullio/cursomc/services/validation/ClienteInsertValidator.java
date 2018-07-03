@@ -8,11 +8,10 @@ import com.igortullio.cursomc.resources.exceptions.FieldMessage;
 import com.igortullio.cursomc.services.validation.utils.BR;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert, ClienteNewDTO> {
 

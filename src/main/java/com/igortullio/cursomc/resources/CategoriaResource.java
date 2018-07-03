@@ -1,8 +1,8 @@
 package com.igortullio.cursomc.resources;
 
+import com.igortullio.cursomc.domain.Categoria;
 import com.igortullio.cursomc.dto.CategoriaDTO;
 import com.igortullio.cursomc.services.CategoriaService;
-import com.igortullio.cursomc.domain.Categoria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

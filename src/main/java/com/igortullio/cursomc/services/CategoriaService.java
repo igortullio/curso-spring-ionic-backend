@@ -2,9 +2,9 @@ package com.igortullio.cursomc.services;
 
 import com.igortullio.cursomc.domain.Categoria;
 import com.igortullio.cursomc.dto.CategoriaDTO;
+import com.igortullio.cursomc.repositories.CategoriaRepository;
 import com.igortullio.cursomc.services.exceptions.DataIntegrityException;
 import com.igortullio.cursomc.services.exceptions.ObjectNotFoundException;
-import com.igortullio.cursomc.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
