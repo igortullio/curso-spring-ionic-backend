@@ -1,5 +1,6 @@
 package com.igortullio.cursomc.domain;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
+@EqualsAndHashCode
 @Setter
 @Getter
 @Embeddable
@@ -23,18 +25,4 @@ public class ItemPedidoPK implements Serializable {
     @JoinColumn(name = "produto_id")
     private Produto produto;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ItemPedidoPK that = (ItemPedidoPK) o;
-        return Objects.equals(pedido, that.pedido) &&
-                Objects.equals(produto, that.produto);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(pedido, produto);
-    }
 }

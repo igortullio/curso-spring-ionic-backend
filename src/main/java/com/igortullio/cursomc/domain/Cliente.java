@@ -3,6 +3,7 @@ package com.igortullio.cursomc.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.igortullio.cursomc.domain.Enums.Perfil;
 import com.igortullio.cursomc.domain.Enums.TipoCliente;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@EqualsAndHashCode
 @Setter
 @Getter
 @Entity
@@ -20,27 +22,39 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @EqualsAndHashCode.Exclude
     private String nome;
 
+    @EqualsAndHashCode.Exclude
     @Column(unique = true)
     private String email;
+
+    @EqualsAndHashCode.Exclude
     private String cpfOuCnpj;
+
+    @EqualsAndHashCode.Exclude
     private Integer tipoCliente;
 
+    @EqualsAndHashCode.Exclude
     @JsonIgnore
     private String senha;
 
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Endereco> enderecos = new ArrayList<>();
 
+    @EqualsAndHashCode.Exclude
     @ElementCollection
     @CollectionTable(name = "TELEFONE")
     private Set<String> telefones = new HashSet<>();
 
+    @EqualsAndHashCode.Exclude
     @ElementCollection(fetch=FetchType.EAGER)
     @CollectionTable(name = "PERFIS")
     private Set<Integer> perfis = new HashSet<>();
 
+    @EqualsAndHashCode.Exclude
     @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new ArrayList<>();
@@ -75,17 +89,4 @@ public class Cliente implements Serializable {
         perfis.add(perfil.getCod());
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cliente cliente = (Cliente) o;
-        return Objects.equals(id, cliente.id);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id);
-    }
 }

@@ -2,6 +2,7 @@ package com.igortullio.cursomc.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Objects;
 
+@EqualsAndHashCode
 @Setter
 @Getter
 @Entity
@@ -22,8 +24,13 @@ public class ItemPedido implements Serializable {
     @EmbeddedId
     private ItemPedidoPK id =  new ItemPedidoPK();
 
+    @EqualsAndHashCode.Exclude
     private Double desconto;
+
+    @EqualsAndHashCode.Exclude
     private Integer quantidade;
+
+    @EqualsAndHashCode.Exclude
     private Double preco;
 
     public ItemPedido() {
@@ -56,19 +63,6 @@ public class ItemPedido implements Serializable {
 
     public void setProduto(Produto produto){
         id.setProduto(produto);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ItemPedido that = (ItemPedido) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 
     @Override

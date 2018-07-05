@@ -3,6 +3,7 @@ package com.igortullio.cursomc.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.igortullio.cursomc.domain.Enums.EstadoPagamento;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@EqualsAndHashCode
 @Setter
 @Getter
 @Entity
@@ -21,8 +23,10 @@ public abstract class Pagamento implements Serializable {
     @Id
     private Integer id;
 
+    @EqualsAndHashCode.Exclude
     private Integer estadoPagamento;
 
+    @EqualsAndHashCode.Exclude
     @JsonIgnore
     @OneToOne
     @JoinColumn(name = "pedido_id")
@@ -46,16 +50,4 @@ public abstract class Pagamento implements Serializable {
         this.estadoPagamento = estadoPagamento.getCod();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pagamento pagamento = (Pagamento) o;
-        return Objects.equals(id, pagamento.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }

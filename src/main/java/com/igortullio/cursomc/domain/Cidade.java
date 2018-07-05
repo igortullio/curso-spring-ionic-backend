@@ -1,5 +1,6 @@
 package com.igortullio.cursomc.domain;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,6 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@EqualsAndHashCode
 @Setter
 @Getter
 @Entity
@@ -16,8 +18,11 @@ public class Cidade implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @EqualsAndHashCode.Exclude
     private String nome;
 
+    @EqualsAndHashCode.Exclude
     @ManyToOne
     @JoinColumn(name = "estado_id")
     private Estado estado;
@@ -31,17 +36,4 @@ public class Cidade implements Serializable {
         this.estado = estado;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cidade cidade = (Cidade) o;
-        return Objects.equals(id, cidade.id);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id);
-    }
 }
