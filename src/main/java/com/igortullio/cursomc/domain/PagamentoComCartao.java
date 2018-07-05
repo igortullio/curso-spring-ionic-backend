@@ -2,9 +2,13 @@ package com.igortullio.cursomc.domain;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.igortullio.cursomc.domain.Enums.EstadoPagamento;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 
+@Setter
+@Getter
 @Entity
 @JsonTypeName("pagamentoComCartao")
 public class PagamentoComCartao extends Pagamento {
@@ -20,11 +24,4 @@ public class PagamentoComCartao extends Pagamento {
         this.numeroDeParcelas = numeroDeParcelas;
     }
 
-    public Integer getNumeroDeParcelas() {
-        return numeroDeParcelas;
-    }
-
-    public void setNumeroDeParcelas(Integer numeroDeParcelas) {
-        this.numeroDeParcelas = numeroDeParcelas;
-    }
 }

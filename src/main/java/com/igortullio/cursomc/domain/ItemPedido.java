@@ -2,6 +2,8 @@ package com.igortullio.cursomc.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -10,6 +12,8 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Objects;
 
+@Setter
+@Getter
 @Entity
 public class ItemPedido implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -54,38 +58,6 @@ public class ItemPedido implements Serializable {
         id.setProduto(produto);
     }
 
-    public ItemPedidoPK getId() {
-        return id;
-    }
-
-    public void setId(ItemPedidoPK id) {
-        this.id = id;
-    }
-
-    public double getDesconto() {
-        return desconto;
-    }
-
-    public void setDesconto(double desconto) {
-        this.desconto = desconto;
-    }
-
-    public Integer getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -96,7 +68,6 @@ public class ItemPedido implements Serializable {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id);
     }
 

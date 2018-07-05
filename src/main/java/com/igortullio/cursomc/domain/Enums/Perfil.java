@@ -1,5 +1,8 @@
 package com.igortullio.cursomc.domain.Enums;
 
+import lombok.Getter;
+
+@Getter
 public enum Perfil {
 
     ADMIN(1, "ROLE_ADMIN"),
@@ -11,14 +14,6 @@ public enum Perfil {
     Perfil(int cod, String descricao) {
         this.cod = cod;
         this.descricao = descricao;
-    }
-
-    public int getCod() {
-        return cod;
-    }
-
-    public String getDescricao() {
-        return descricao;
     }
 
     public static Perfil toEnum(Integer cod){
